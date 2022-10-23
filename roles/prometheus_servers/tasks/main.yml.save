@@ -1,0 +1,29 @@
+---
+
+  - name: install Prometheus for Ubuntu server
+    tags: prometheus,ubuntu
+    apt:
+      name: prometheus
+      state: latest
+    when: ansible_distribution == "Ubuntu"
+
+  - name: start Prometheus (Ubuntu)
+    tags: nagios,apache,centos,httpd
+    service:
+      name: prometheus
+      state: started
+    when: ansible_distribution == "Ubuntu"
+
+
+  - name: install Prometheus for CentOS server
+    tags: nagios,apache,centos,centos
+    action: 
+     
+    when: ansible_distribution == "CentOS"
+  
+  - name: start Prometheus (CentOS)
+    tags: nagios,apache,centos,httpd
+    service:
+      name: prometheus
+      state: started
+    when: ansible_distribution == "CentOS"
